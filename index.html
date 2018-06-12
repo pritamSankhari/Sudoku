@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="data.js"></script>
-  </head> 
-  <body>
-  	<h1 class="header">SUDOKU</h1>
 
-  	<div class="display">
-  		<div class="controls">
-  			<div id="timmer"></div>
-		    <div class="btn-class">
-		    	<button class="btn" id="submit">Submit</button>
-		    	<button class="btn" id="quit">Quit</button>
-		    </div>
-  		</div>
-  		<div id="board">
-  			<script src="sketch.js"></script>
-  		</div>
-  	</div>
-  <script src="gameplay.js"></script>
-  </body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="bg-light">
+	<div class="nav nav-expand-lg nav-light bg-dark">
+		<div class="brand text-light">
+			<h1>SuDoKu</h1>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="container">
+		<div class="display row">
+			<div class="controls col-md-4">
+				<div id="timmer"></div>
+				<div class="btn-class">
+					<button class="btn btn-primary" id="submit">Submit</button>
+					<button class="btn btn-warning" id="quit">Quit</button>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<br>
+				<div id="board">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/data.js"></script>
+	<script src="js/gameplay.js"></script>
+	<script src="js/sketch.js"></script>
+</body>
+
 </html>
