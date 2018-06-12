@@ -1,5 +1,5 @@
 // Getting data from a local file
-var board = unsolved[1];
+var board = solved[1];
 
 // Board design
 var count = 0;
@@ -18,6 +18,7 @@ for (var i = 0; i < 9; i++) {
     cell.addEventListener("keydown", play);
   }
 }
+
 
 // Timmer Function
 var sec = 0;

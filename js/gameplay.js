@@ -56,13 +56,23 @@ function horizontalMatch(board, row, col) {
 	return true;
 }
 
+function boxMatch(board, row, col) {
+	for (var i = 0; i < row; i += 3) {
+		for (var j = 0; j < col; j += 3) {
+			if (!horizontalMatch(board, i + 3, j + 3) || !verticalMatch(board, i + 3, j + 3))
+				return false;
+		}
+	}
+	return true;
+}
+
 
 // submit function
 var submit = document.getElementById("submit");
 submit.addEventListener("click", checkSolved);
 
 function checkSolved() {
-	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9)) console.log("WIN");
+	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) console.log("WIN");
 }
 
 // quit function 
