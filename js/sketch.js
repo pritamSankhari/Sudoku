@@ -1,24 +1,33 @@
 // Getting data from a local file
-var board = solved[1];
+var board = unsolved[1];
 
-// Board design
-var count = 0;
 var display = document.getElementById("board");
-for (var i = 0; i < 9; i++) {
-  for (var j = 0; j < 9; j++) {
-    var cell = document.createElement("input");
-    display.appendChild(cell);
-    cell.setAttribute("type", "text");
-    if (board[i][j] > 0) {
-      cell.setAttribute("value", board[i][j]);
-      cell.readOnly = true;
+
+for (var l = 0; l < 9; l += 3) {
+  for (var k = 0; k < 9; k += 3) {
+
+    var box = document.createElement("div");
+    box.setAttribute("class", "box");
+    for (var i = 0; i < 3; i++) {
+      for (var j = k; j < k + 3; j++) {
+        var cell = document.createElement("input");
+
+        if (board[i][j] > 0) {
+          cell.setAttribute("value", board[i][j]);
+          cell.readOnly = true;
+        }
+
+        cell.setAttribute("type", "text");
+        cell.setAttribute("class", "field");
+        cell.setAttribute("id", parseInt(j) + parseInt(i * 9));
+        cell.addEventListener("keydown", play);
+
+        box.appendChild(cell);
+      }
     }
-    cell.setAttribute("class", "field");
-    cell.setAttribute("id", parseInt(j) + parseInt(i * 9));
-    cell.addEventListener("keydown", play);
+    display.appendChild(box);
   }
 }
-
 
 // Timmer Function
 var sec = 0;

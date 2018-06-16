@@ -72,7 +72,10 @@ var submit = document.getElementById("submit");
 submit.addEventListener("click", checkSolved);
 
 function checkSolved() {
-	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) console.log("WIN");
+	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
+		alert("You Win");
+		console.log("WIN");
+	}
 }
 
 // quit function 

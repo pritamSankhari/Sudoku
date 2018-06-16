@@ -21,17 +21,21 @@
 
 #board {
 	margin: auto;
-	/* margin-top: 50px;
-	margin-bottom: 50px; */
-	width: 292px;
-	height: 292px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	max-width: 300px;
+}
+
+.box {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	border: 2px solid black;
 }
 
 .field {
-	width: 30px;
-	height: 30px;
-	margin: 1px;
+	min-width: 30px;
+	min-height: 30px;
+	/* margin: 1px; */
 	border: 1px solid black;
 	text-align: center;
 }
