@@ -1,3 +1,65 @@
+// Getting data from a local file
+var board = unsolved[1];
+
+var display = document.getElementById("board");
+var timmer = document.getElementById("timmer");
+var t = new Timer();
+
+// Timmer Function
+function startTimmer() {
+	setInterval(function () {
+		var txt = t.show();
+		timmer.innerHTML = txt;
+		t.update();
+	}, 1000);
+}
+
+// Board design
+function createBoard() {
+	for (var l = 0; l < 9; l += 3) {
+		for (var k = 0; k < 9; k += 3) {
+
+			var box = document.createElement("div");
+			box.setAttribute("class", "box");
+			for (var i = 0; i < 3; i++) {
+				for (var j = k; j < k + 3; j++) {
+					var cell = document.createElement("input");
+
+					if (board[i + l][j] > 0) {
+						cell.setAttribute("value", board[i + l][j]);
+						cell.readOnly = true;
+					}
+
+					cell.setAttribute("type", "text");
+					cell.setAttribute("class", "field");
+					cell.setAttribute("id", parseInt(j) + parseInt((i + l) * 9));
+					cell.addEventListener("keyup", play);
+
+					box.appendChild(cell);
+				}
+			}
+			display.appendChild(box);
+		}
+	}
+}
+
+function resetBoard() {
+	var cells = document.getElementsByClassName("field");
+	for (var i = 0; i < cells.length; i++) {
+		var cell = cells[i];
+		var id = cell.id;
+		var row = parseInt(id / 9);
+		var col = parseInt(id % 9);
+
+		if (board[row][col]) {
+			cell.value = board[row][col];
+		} else {
+			cell.value = " ";
+		}
+	}
+}
+
+
 function play(e) {
 	var input = parseInt(e.key);
 	var id = this.id;
@@ -5,11 +67,11 @@ function play(e) {
 	var col = parseInt(id % 9);
 
 	if (input) {
-		console.log(input);
 		board[row][col] = input;
+		this.value = e.key;
+	} else {
+		this.value = " ";
 	}
-
-	this.value = "";
 }
 
 function verticalMatch(board, row, col) {
@@ -66,17 +128,18 @@ function boxMatch(board, row, col) {
 	return true;
 }
 
-
-// submit function
-var submit = document.getElementById("submit");
-submit.addEventListener("click", checkSolved);
-
 function checkSolved() {
 	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
 		alert("You Win");
-		console.log("WIN");
+		t.stop();
+	} else {
+		alert("Complete the game");
 	}
 }
 
-// quit function 
-// var quit = document.getElementById("quit");
+function reset() {
+	board = unsolved[1];
+	t.restart();
+	t.start();
+	resetBoard();
+}
