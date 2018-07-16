@@ -11,7 +11,7 @@ class Timer {
         this.stoped = false;
     }
 
-    restart() {
+    reset() {
         this.sec = 0;
         this.min = 0;
         this.hour = 0;

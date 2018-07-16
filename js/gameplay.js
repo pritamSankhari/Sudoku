@@ -69,8 +69,12 @@ function play(e) {
 	if (input) {
 		board[row][col] = input;
 		this.value = e.key;
+	} else if (e.key === "Tab" || e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown") {
+		// Do Nothing
+		console.log(e.key + " in else if block");
 	} else {
 		this.value = " ";
+		console.log(e.key + " in else block");
 	}
 }
 
@@ -139,7 +143,7 @@ function checkSolved() {
 
 function reset() {
 	board = unsolved[1];
-	t.restart();
+	t.reset();
 	t.start();
 	resetBoard();
 }
