@@ -131,14 +131,17 @@ function boxMatch(board, row, col) {
 	}
 	return true;
 }
-
+ 
 function checkSolved() {
-	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
+	// if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
 		alert("You Win");
 		t.stop();
-	} else {
-		alert("Complete the game");
-	}
+		var s=document.getElementById("game-time").innerHTML; //Getting time
+		document.getElementById("playtime").value=s; //Setting time record
+		document.getElementById("new-record-div").style.visibility="visible";
+	// } else {
+	// 	alert("Complete the game");
+	// }
 }
 
 function reset() {

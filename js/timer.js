@@ -21,7 +21,7 @@ class Timer {
         return `
             <h2>Time Consumed:</h2>
             <br/>
-            <h3>
+            <h3 id="game-time">
                 ${addZero(this.hour)}:${addZero(this.min)}:${addZero(this.sec)}
             </h3>
         `;
