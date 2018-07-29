@@ -18,13 +18,9 @@ class Timer {
     }
 
     show() {
-        return `
-            <h2>Time Consumed:</h2>
+        return `<h2>Time Consumed:</h2>
             <br/>
-            <h3>
-                ${addZero(this.hour)}:${addZero(this.min)}:${addZero(this.sec)}
-            </h3>
-        `;
+            <h3 id="game-time">${addZero(this.hour)}:${addZero(this.min)}:${addZero(this.sec)}</h3>`;
     }
 
     stop() {
