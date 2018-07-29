@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -20,11 +21,22 @@
 		<div class="display row">
 			<div class="controls col-md-4">
 				<div id="timmer"></div>
+				
 				<div class="btn-class">
 					<button class="btn btn-primary" id="submit">Submit</button>
 					<button class="btn btn-warning" id="quit">Quit</button>
 				</div>
 			</div>
+			
+			<div id="new-record-div" class=".new-record-form-block">
+				<h3>New Record !!!</h3>
+			<form action="php/addNewRecord.php" method="post" onsubmit="return validateNewRecordForm()">
+				<input id="new-name" type="text" name="newname" placeholder="Enter Your Name">
+				<input id="playtime" type="hidden" name="stime">
+				<input type="submit" value="Confirm" name="">
+			</form>	
+			</div>
+
 			<div class="col-md-8">
 				<br>
 				<div id="board">
@@ -33,6 +45,7 @@
 		</div>
 	</div>
 
+	<script src="js/formValidation.js"></script>
 	<script src="js/data.js"></script>
 	<script src="js/timer.js"></script>
 	<script src="js/gameplay.js"></script>
