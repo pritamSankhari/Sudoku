@@ -17,3 +17,12 @@
 	border: 1px solid black;
 	text-align: center;
 }
+
+/*.new-record-form-block{
+	visibility: hidden;
+}*/
+
+#new-record-div
+{
+	visibility: hidden;	
+}
